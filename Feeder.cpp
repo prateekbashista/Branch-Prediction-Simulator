@@ -11,7 +11,7 @@ void feeder_func(int line,uint16_t &pc, int &if_br)
     int power = 0;
 
 
-    ctracer.open("test_br.ctrace", ios::in);
+    ctracer.open("wireframe.ctrace", ios::in);
 
     if(!ctracer){
         cout<<"File not found !!";
@@ -38,7 +38,7 @@ void feeder_func(int line,uint16_t &pc, int &if_br)
             pc = pc_i;
             cout<<pc_imm;
             cout<<" "<<insn;
-            cout<<" "<<insn[0]<<insn[1]<<insn[2]<<insn[3];
+           // cout<<" "<<insn[0]<<insn[1]<<insn[2]<<insn[3];
 
             if(insn[0] == 48 && insn[1] == 48 && insn[2] == 48 && insn[3] == 48)
             {
