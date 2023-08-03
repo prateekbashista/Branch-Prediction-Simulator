@@ -1,4 +1,5 @@
 #include "Feeder.h"
+#include "bimodal.h"
 
 int main()
 {
@@ -11,7 +12,7 @@ int main()
 
     if(if_br == 1)
     {
-        
+
     }
 
     cout<<" "<<pc<<" "<<if_br<<endl;

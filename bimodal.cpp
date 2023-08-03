@@ -1,16 +1,5 @@
 #include "bimodal.h"
 
-class BHT{
-    // unordered map
-    unordered_map<uint16_t, int> BHT_cache;
-    //int max_size = 1024;
-
-    public:
-       int BHT_check(int,int);
-       void BHT_update(int,int,int);
-
-};
-
 int BHT::BHT_check(int index, int code)
 {
     unordered_map<uint16_t, int> :: iterator element = BHT_cache.find(index);

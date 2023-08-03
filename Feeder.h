@@ -1,5 +1,6 @@
+#ifndef FEEDER_H
+#define FEEDER_H
 
-#pragma once
 #include <stdio.h>
 #include <iostream>
 #include <fstream>
@@ -12,3 +13,4 @@ using namespace std;
 
 void feeder_func(int,uint16_t &,int &);
 
+#endif
