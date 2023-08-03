@@ -9,6 +9,11 @@ int main()
     {
     feeder_func(i,pc,if_br);
 
+    if(if_br == 1)
+    {
+        
+    }
+
     cout<<" "<<pc<<" "<<if_br<<endl;
     }
 
