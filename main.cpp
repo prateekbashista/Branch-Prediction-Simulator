@@ -1,6 +1,7 @@
 #include "Feeder.h"
 #include "bimodal.h"
 #include "bc2.h"
+#include "gshare.h"
 
 int main()
 {
@@ -14,14 +15,14 @@ int main()
 
     int predict_select;
 
-    cout<<"Select the Predictor(1 = Bimodal, 2 = 2bc) : ";
+    cout<<"Select the Predictor(1 = Bimodal, 2 = 2bc, 3 = Gshare) : ";
     cin>>predict_select;
     cout<<endl;
     
     if(predict_select == 1)
     {
     
-    for(int i = 0;i<8013;i++)
+    for(int i = 0;i<197483;i++)
     {
     feeder_func(i,pc,if_br);
 
@@ -52,7 +53,7 @@ int main()
     else if(predict_select == 2)
     {
    
-    for(int i = 0;i<8013;i++)
+    for(int i = 0;i<197483;i++)
     {
     feeder_func(i,pc,if_br);
 
@@ -93,6 +94,56 @@ int main()
     cout<<endl;
     }
     }
+
+
+
+    else if (predict_select == 3)
+    {
+        
+    for(int i = 0;i<197483;i++)
+    {
+    feeder_func(i,pc,if_br);
+
+    cout<<" "<<pc<<" "<<if_br;
+
+    if(if_br == 1 && pc!=0)
+    {
+       
+        prediction  = gshare_predict(pc,1);
+        cout<<" ";
+        cout<<" "<<"Prediction:"<<prediction<<" ";
+
+        feeder_func(i+3,pc_res,if_br_res);
+        
+        if((pc_res!= (pc+3) && prediction == 0)) // The branch was taken, but prediction was not taken
+        {
+            //bimodal_func(pc,2);
+            gshare_predict(pc,2);
+            wrong++;
+        }
+        else if( (pc_res == (pc+3) && prediction == 1)) // The branch was not taken, but prediction was taken
+        {
+            gshare_predict(pc,3);
+            wrong++;            
+        }
+        else if( (pc_res == (pc+3) && prediction == 0)) // The branch was not taken, but prediction was taken
+        {
+            gshare_predict(pc,3);            
+        }
+        else if((pc_res!= (pc+3) && prediction == 1)) // The branch was not taken, but prediction was taken
+        {
+            gshare_predict(pc,2);       
+        }
+
+    total++;
+   }
+
+    cout<<endl;
+    }
+    }
+
+
+
     int accuracy  = ((total - wrong) / total) * 100 ;
     cout<<"total : "<<total<<endl;
     cout<<"wrong : "<<wrong<<endl;

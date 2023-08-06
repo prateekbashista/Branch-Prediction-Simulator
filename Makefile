@@ -1,5 +1,8 @@
 .PHONY : clean
 
+gshare: main.cpp Feeder.cpp Feeder.h bimodal.h bimodal.cpp bc2.cpp bc2.h gshare.cpp gshare.h
+			g++ -g -o gshare main.cpp Feeder.cpp Feeder.h bimodal.h bimodal.cpp bc2.cpp bc2.h gshare.cpp gshare.h
+
 bc2: main.cpp Feeder.cpp Feeder.h bimodal.h bimodal.cpp bc2.cpp bc2.h
 			g++ -g -o bc2 main.cpp Feeder.cpp Feeder.h bimodal.h bimodal.cpp bc2.cpp bc2.h
 
@@ -14,3 +17,5 @@ CleanBimodal:
 			rm bimodal $(objects) output.txt
 CleanBC2: 
 			rm bc2 $(objects) output.txt
+CleanGshare: 
+			rm gshare $(objects) output.txt

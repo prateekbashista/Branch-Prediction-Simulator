@@ -11,7 +11,7 @@ void feeder_func(int line,uint16_t &pc, int &if_br)
     int power = 0;
 
 
-    ctracer.open("house.ctrace", ios::in);
+    ctracer.open("wireframe.ctrace", ios::in);
 
     if(!ctracer){
         cout<<"File not found !!";
