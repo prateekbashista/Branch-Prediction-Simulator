@@ -21,7 +21,7 @@ int main()
     if(predict_select == 1)
     {
     
-    for(int i = 0;i<17805;i++)
+    for(int i = 0;i<8013;i++)
     {
     feeder_func(i,pc,if_br);
 
@@ -52,7 +52,7 @@ int main()
     else if(predict_select == 2)
     {
    
-    for(int i = 0;i<17805;i++)
+    for(int i = 0;i<8013;i++)
     {
     feeder_func(i,pc,if_br);
 
